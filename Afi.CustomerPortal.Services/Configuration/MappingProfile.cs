@@ -4,6 +4,9 @@ using AutoMapper;
 
 namespace Afi.CustomerPortal.Configuration
 {
+    /// <summary>
+    /// Mapping rules for entities.
+    /// </summary>
     public class MappingProfile : Profile
     {
         public MappingProfile()

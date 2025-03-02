@@ -19,6 +19,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Afi.CustomerPortal.Entities\Afi.CustomerPortal.Entities.csproj" />
+    <ProjectReference Include="..\Afi.CustomerPortal.Services\Afi.CustomerPortal.Services.csproj" />
+    <ProjectReference Include="..\Afi.CustomerPortal\Afi.CustomerPortal.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Using Include="Xunit" />
   </ItemGroup>
 

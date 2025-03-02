@@ -11,7 +11,7 @@ namespace Afi.CustomerPortal.Services.UnitTests
     public class CustomerRegistrationServiceTests
     {
         [Fact]
-        public void ShouldCorrectlyMapSaveAndReturnCustomerId()
+        public void ShouldCorrectlyMapSaveAndReturnCustomerId_OnSuccess()
         {
             var registration = new CustomerRegistration
             {
@@ -27,7 +27,7 @@ namespace Afi.CustomerPortal.Services.UnitTests
             // Ensure DataContext SaveChanges is called and customer Id is returned.
             var dataContext = new Mock<DataContext>(new DbContextOptionsBuilder<DataContext>().Options);
             dataContext.Setup(x => x.Customers).ReturnsDbSet([]);
-            dataContext.Setup(x => x.Customers.Add(customer));
+            dataContext.Setup(x => x.CustomerPolicies).ReturnsDbSet([]);
             dataContext.Setup(x => x.SaveChanges())
                 .Callback(() => customer.Id = 1);
 
@@ -39,6 +39,35 @@ namespace Afi.CustomerPortal.Services.UnitTests
             int result = service.Register(registration);
 
             Assert.Equal(1, result);
+        }
+
+        [Fact]
+        public void ShouldCorrectlyMapSaveAndReturnZero_OnEmailClash()
+        {
+            var registration = new CustomerRegistration
+            {
+                DateOfBirth = DateOnly.FromDateTime(DateTime.Today).AddYears(-20),
+                EmailAddress = "aaaa@aaaa.com",
+                FirstName = "First",
+                LastName = "Last",
+                PolicyNumber = "AA-666666"
+            };
+
+            var customer = new Customer { FirstName = registration.FirstName, LastName = registration.LastName };
+
+            // Ensure DataContext SaveChanges is called and customer Id is returned.
+            var dataContext = new Mock<DataContext>(new DbContextOptionsBuilder<DataContext>().Options);
+            dataContext.Setup(x => x.Customers).ReturnsDbSet([customer]);
+            dataContext.Setup(x => x.CustomerPolicies).ReturnsDbSet([]);
+
+            var mapper = new Mock<IMapper>();
+            mapper.Setup(x => x.Map<Customer>(registration)).Returns(customer);
+
+            var service = new CustomerRegistrationService(dataContext.Object, mapper.Object);
+
+            int result = service.Register(registration);
+
+            Assert.Equal(0, result);
         }
     }
 }
