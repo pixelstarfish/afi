@@ -1,6 +1,0 @@
-@Afi.CustomerPortal_HostAddress = http://localhost:5292
-
-GET {{Afi.CustomerPortal_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###

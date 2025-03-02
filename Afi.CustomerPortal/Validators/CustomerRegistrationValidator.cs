@@ -1,7 +1,5 @@
 ﻿using Afi.CustomerPortal.Entities.Dto;
 using FluentValidation;
-using Microsoft.IdentityModel.Tokens;
-using System;
 using System.Text.RegularExpressions;
 
 namespace Afi.CustomerPortal.Validators
@@ -25,18 +23,19 @@ namespace Afi.CustomerPortal.Validators
                 .Must(MustBeValidPolicyNumber).WithMessage("You must supply a valid policy number.");
 
             RuleFor(x => x.DateOfBirth)
+                .NotEmpty().When(x => string.IsNullOrWhiteSpace(x.EmailAddress)).WithMessage("Date of birth is required if E-mail is empty.");
+
+            RuleFor(x => x.DateOfBirth)
                 .Must(MustBeOlderThan18).WithMessage("You must be at least 18 years old.")
                 .When(y => y.DateOfBirth != null);
+
+            RuleFor(x => x.EmailAddress)
+                .NotEmpty().When(x => x.DateOfBirth == null).WithMessage("DE-mail is required if date of birth is empty.");
 
             RuleFor(x => x.EmailAddress)
                 .Must(MustBeAValidEmailAddress).WithMessage("You must supply a valid e-mail address.")
                 .When(y => !string.IsNullOrEmpty(y.EmailAddress));
         }
-
-        //private static bool MustHaveDateOfBirthOrEmailAddress(DateOnly dateOfBirth, string? emailAddress)
-        //{
-        //    return !string.IsNullOrEmpty() || !string.IsNullOrEmpty(person.LastName);
-        //}
 
         private static bool MustBeValidPolicyNumber(string policyNumber)
         {
