@@ -16,7 +16,7 @@ namespace Afi.CustomerPortal.Services
             var customer = _mapper.Map<Customer>(value);
 
             // E-mail address and policy number should be unique (in theory)
-            if (!_dataContext.Customers.Any(x => x.EmailAddress == value.EmailAddress) && 
+            if (!_dataContext.Customers.Any(x => x.EmailAddress != null && x.EmailAddress == value.EmailAddress) && 
                 !_dataContext.CustomerPolicies.Any(x => x.PolicyNumber == value.PolicyNumber))
             {
                 _dataContext.Customers.Add(customer);

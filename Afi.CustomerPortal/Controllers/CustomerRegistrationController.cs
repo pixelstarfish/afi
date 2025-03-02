@@ -1,6 +1,7 @@
 using Afi.CustomerPortal.Entities.Dto;
 using Afi.CustomerPortal.Services;
 using Microsoft.AspNetCore.Mvc;
+using Swashbuckle.AspNetCore.Annotations;
 
 namespace Afi.CustomerPortal.Controllers;
 

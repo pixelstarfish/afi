@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Afi.CustomerPortal.Services.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20250302161214_InitialCreate")]
+    [Migration("20250302171925_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -33,7 +33,7 @@ namespace Afi.CustomerPortal.Services.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<DateOnly>("DateOfBirth")
+                    b.Property<DateOnly?>("DateOfBirth")
                         .HasColumnType("date");
 
                     b.Property<string>("EmailAddress")
@@ -72,8 +72,8 @@ namespace Afi.CustomerPortal.Services.Migrations
 
                     b.Property<string>("PolicyNumber")
                         .IsRequired()
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
+                        .HasMaxLength(9)
+                        .HasColumnType("nvarchar(9)");
 
                     b.HasKey("Id");
 

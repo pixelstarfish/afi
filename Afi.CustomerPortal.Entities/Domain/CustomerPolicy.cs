@@ -7,7 +7,7 @@ namespace Afi.CustomerPortal.Entities.Domain
     public class CustomerPolicy
     {
         public int Id { get; set; }
-        [MaxLength(20)]
+        [MaxLength(9)]
         public required string PolicyNumber { get; set; }
     }
 }

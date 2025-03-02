@@ -19,7 +19,7 @@ namespace Afi.CustomerPortal.Services.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     FirstName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     LastName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    DateOfBirth = table.Column<DateOnly>(type: "date", nullable: false),
+                    DateOfBirth = table.Column<DateOnly>(type: "date", nullable: true),
                     EmailAddress = table.Column<string>(type: "nvarchar(254)", maxLength: 254, nullable: true)
                 },
                 constraints: table =>
@@ -33,7 +33,7 @@ namespace Afi.CustomerPortal.Services.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    PolicyNumber = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
+                    PolicyNumber = table.Column<string>(type: "nvarchar(9)", maxLength: 9, nullable: false),
                     CustomerId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>

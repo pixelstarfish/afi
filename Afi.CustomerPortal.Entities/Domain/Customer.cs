@@ -11,7 +11,7 @@ namespace Afi.CustomerPortal.Entities.Domain
         public required string FirstName { get; set; }
         [MaxLength(50)]
         public required string LastName { get; set; }
-        public DateOnly DateOfBirth { get; set; }
+        public DateOnly? DateOfBirth { get; set; }
         [MaxLength(254)]
         public string? EmailAddress { get; set; }
         public List<CustomerPolicy> Policies { get; set; } = new List<CustomerPolicy>();
