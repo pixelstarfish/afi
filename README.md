@@ -11,7 +11,7 @@
 **Unit Testing**
 
 
-Example unit testing provided. Further testing can be added.
+Example unit testing provided. Solution is fully testable on every level. Further testing can be added.
 
 
 **3rd Party Libraries used**
