@@ -1,9 +1,19 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.13.35825.156 d17.13
+VisualStudioVersion = 17.13.35825.156
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Afi.CustomerPortal", "Afi.CustomerPortal\Afi.CustomerPortal.csproj", "{D5CC7367-C69D-445A-96CF-AFE45B901298}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Afi.CustomerPortal.Entities", "Afi.CustomerPortal.Entities\Afi.CustomerPortal.Entities.csproj", "{71B7CE5F-BE73-475D-B34E-9106A05325FD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Afi.CustomerPortal.Services", "Afi.CustomerPortal.Services\Afi.CustomerPortal.Services.csproj", "{939294FD-1037-4347-A3D6-303E934C54F7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Afi.CustomerPortal.Services.UnitTests", "Afi.CustomerPortal.Services.UnitTests\Afi.CustomerPortal.Services.UnitTests.csproj", "{FC4799F2-E8A7-4FEB-94F4-5F1758296FA7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Afi.CustomerPortal.UnitTests", "Afi.CustomerPortal.UnitTests\Afi.CustomerPortal.UnitTests.csproj", "{601B106F-F318-4D35-9A15-4729CF4C0075}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,9 +25,29 @@ Global
 		{D5CC7367-C69D-445A-96CF-AFE45B901298}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D5CC7367-C69D-445A-96CF-AFE45B901298}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D5CC7367-C69D-445A-96CF-AFE45B901298}.Release|Any CPU.Build.0 = Release|Any CPU
+		{71B7CE5F-BE73-475D-B34E-9106A05325FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{71B7CE5F-BE73-475D-B34E-9106A05325FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{71B7CE5F-BE73-475D-B34E-9106A05325FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{71B7CE5F-BE73-475D-B34E-9106A05325FD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{939294FD-1037-4347-A3D6-303E934C54F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{939294FD-1037-4347-A3D6-303E934C54F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{939294FD-1037-4347-A3D6-303E934C54F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{939294FD-1037-4347-A3D6-303E934C54F7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC4799F2-E8A7-4FEB-94F4-5F1758296FA7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC4799F2-E8A7-4FEB-94F4-5F1758296FA7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC4799F2-E8A7-4FEB-94F4-5F1758296FA7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC4799F2-E8A7-4FEB-94F4-5F1758296FA7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{601B106F-F318-4D35-9A15-4729CF4C0075}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{601B106F-F318-4D35-9A15-4729CF4C0075}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{601B106F-F318-4D35-9A15-4729CF4C0075}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{601B106F-F318-4D35-9A15-4729CF4C0075}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{FC4799F2-E8A7-4FEB-94F4-5F1758296FA7} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{601B106F-F318-4D35-9A15-4729CF4C0075} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3D7584B0-EC27-4FE2-927A-E2458A28FA9E}
