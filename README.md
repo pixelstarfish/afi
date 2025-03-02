@@ -3,7 +3,7 @@
 
 **Usage**
 
-1. List itemOpen Afi.CustomerPortal.sln
+1. Open Afi.CustomerPortal.sln
 2. Database is configured for localdb by default, which is likely to work on most machines.  From the Nuget Package Manager Console, run:
 
 	*Update-Database*
