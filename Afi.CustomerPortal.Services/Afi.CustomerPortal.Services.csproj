@@ -15,4 +15,8 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Afi.CustomerPortal.Entities\Afi.CustomerPortal.Entities.csproj" />
+  </ItemGroup>
+
 </Project>

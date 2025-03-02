@@ -1,3 +1,5 @@
+using Afi.CustomerPortal.Services.Configuration;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -6,6 +8,9 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+// Configure abstracted data logic layer.
+builder.Services.ConfigureDataLayer(builder.Configuration);
 
 var app = builder.Build();
 
