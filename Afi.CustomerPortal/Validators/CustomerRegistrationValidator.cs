@@ -26,7 +26,7 @@ namespace Afi.CustomerPortal.Validators
                 .NotEmpty().When(x => string.IsNullOrWhiteSpace(x.EmailAddress)).WithMessage("Date of birth is required if E-mail is empty.");
 
             RuleFor(x => x.DateOfBirth)
-                .Must(MustBeOlderThan18).WithMessage("You must be at least 18 years old.")
+                .Must(MustBe18YearsOrOlder).WithMessage("You must be at least 18 years old.")
                 .When(y => y.DateOfBirth != null);
 
             RuleFor(x => x.EmailAddress)
@@ -42,23 +42,9 @@ namespace Afi.CustomerPortal.Validators
             return policyNumber != null && Regex.IsMatch(policyNumber, @"^[A-Z]{2}-\d{6}$");
         }
 
-        private static bool MustBeOlderThan18(DateOnly? dateOfBirth)
+        private static bool MustBe18YearsOrOlder(DateOnly? dateOfBirth)
         {
-            if (dateOfBirth == null)
-            {
-                return false;
-            }
-
-            var today = DateOnly.FromDateTime(DateTime.Today);
-            var age = today.Year - dateOfBirth.Value.Year;
-
-            // Adjust age if birthday hasn't occurred this year.
-            if (dateOfBirth > today.AddYears(-age))
-            {
-                age--;
-            }
-
-            return age >= 18;
+            return dateOfBirth != null && dateOfBirth.Value.AddYears(18) <= DateOnly.FromDateTime(DateTime.Today);
         }
 
         private static bool MustBeAValidEmailAddress(string? emailAddress)
